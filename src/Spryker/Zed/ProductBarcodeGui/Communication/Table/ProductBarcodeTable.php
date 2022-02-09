@@ -113,7 +113,6 @@ class ProductBarcodeTable extends AbstractTable
     {
         $localeTransfer->requireIdLocale();
 
-        /** @var \Orm\Zed\Product\Persistence\SpyProductQuery $query */
         $query = SpyProductQuery::create()
             ->innerJoinSpyProductLocalizedAttributes()
             ->useSpyProductLocalizedAttributesQuery()

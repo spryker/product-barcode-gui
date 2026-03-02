@@ -25,12 +25,6 @@ class ProductBarcodeGuiToProductBarcodeFacadeBridge implements ProductBarcodeGui
         $this->productBarcodeFacade = $productBarcodeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param string|null $generatorPlugin
-     *
-     * @return \Generated\Shared\Transfer\BarcodeResponseTransfer
-     */
     public function generateBarcode(
         ProductConcreteTransfer $productConcreteTransfer,
         ?string $generatorPlugin = null

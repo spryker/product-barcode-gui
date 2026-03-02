@@ -16,11 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ProductBarcodeController extends AbstractController
 {
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return array
-     */
     public function indexAction(Request $request): array
     {
         $productBarcodeTable = $this->getFactory()->createProductBarcodeTable();
@@ -30,11 +25,6 @@ class ProductBarcodeController extends AbstractController
         ];
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function tableAction(Request $request): JsonResponse
     {
         $productBarcodeTable = $this->getFactory()->createProductBarcodeTable();

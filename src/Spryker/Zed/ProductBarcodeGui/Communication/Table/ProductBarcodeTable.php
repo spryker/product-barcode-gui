@@ -59,10 +59,6 @@ class ProductBarcodeTable extends AbstractTable
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductBarcodeGui\Dependency\Facade\ProductBarcodeGuiToProductBarcodeFacadeInterface $productBarcodeFacade
-     * @param \Spryker\Zed\ProductBarcodeGui\Dependency\Facade\ProductBarcodeGuiToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         ProductBarcodeGuiToProductBarcodeFacadeInterface $productBarcodeFacade,
         ProductBarcodeGuiToLocaleFacadeInterface $localeFacade
@@ -71,11 +67,6 @@ class ProductBarcodeTable extends AbstractTable
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config->setHeader([
@@ -104,11 +95,6 @@ class ProductBarcodeTable extends AbstractTable
         return $config;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     protected function prepareTableQuery(LocaleTransfer $localeTransfer): SpyProductQuery
     {
         $localeTransfer->requireIdLocale();
@@ -124,11 +110,6 @@ class ProductBarcodeTable extends AbstractTable
         return $query;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return array
-     */
     protected function prepareData(TableConfiguration $config): array
     {
         $queryResults = $this->runQuery(
@@ -146,9 +127,6 @@ class ProductBarcodeTable extends AbstractTable
         return $results;
     }
 
-    /**
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     protected function prepareQuery(): SpyProductQuery
     {
         $localeTransfer = $this->localeFacade->getCurrentLocale();
@@ -156,11 +134,6 @@ class ProductBarcodeTable extends AbstractTable
         return $this->prepareTableQuery($localeTransfer);
     }
 
-    /**
-     * @param \Orm\Zed\Product\Persistence\SpyProduct $product
-     *
-     * @return array
-     */
     protected function generateItem(SpyProduct $product): array
     {
         $sku = $product->getSku();
@@ -174,11 +147,6 @@ class ProductBarcodeTable extends AbstractTable
         ];
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return string
-     */
     protected function getBarcodeImageBySku(string $sku): string
     {
         $productTransfer = new ProductConcreteTransfer();

@@ -24,11 +24,6 @@ class ProductBarcodeGuiDependencyProvider extends AbstractBundleDependencyProvid
      */
     public const FACADE_PRODUCT_BARCODE = 'FACADE_PRODUCT_BARCODE';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = $this->addProductBarcodeFacade($container);
@@ -37,11 +32,6 @@ class ProductBarcodeGuiDependencyProvider extends AbstractBundleDependencyProvid
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductBarcodeFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT_BARCODE, function (Container $container) {
@@ -53,11 +43,6 @@ class ProductBarcodeGuiDependencyProvider extends AbstractBundleDependencyProvid
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addLocaleFacade(Container $container): Container
     {
         $container->set(static::FACADE_LOCALE, function (Container $container) {
